@@ -74,6 +74,9 @@ local keys = {
     { key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
     { key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
     { key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },
+	 -- Move tab left/right
+    { key = 'LeftArrow', mods = 'SHIFT|ALT', action = act.MoveTabRelative(-1) },
+    { key = 'RightArrow', mods = 'SHIFT|ALT', action = act.MoveTabRelative(1) },
 }
 
 -- Tabs 1-9
