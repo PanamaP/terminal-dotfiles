@@ -6,6 +6,16 @@ local config = wezterm.config_builder()
 
 local act = wezterm.action
 
+-- Tabs: LEADER + number
+local tab_keys = {}
+for i = 1, 9 do
+  table.insert(tab_keys, {
+    key = tostring(i),
+    mods = "LEADER",
+    action = act.ActivateTab(i - 1),
+  })
+end
+
 config.default_prog = { "nu" }
 
 config.color_scheme = "tokyonight"
@@ -37,7 +47,7 @@ config.window_close_confirmation = "NeverPrompt"
 
 config.leader = { key = "Space", mods = "CTRL", timeout_milliseconds = 1000 }
 
-config.keys = {
+local keys = {
     --  Splits 
     { key = "s", mods = "LEADER", action = act.SplitPane({ direction = "Right", size = { Percent = 50 } }) },
 	{ key = "d", mods = "LEADER", action = act.SplitPane({ direction = "Down",  size = { Percent = 50 } }) },
@@ -65,6 +75,13 @@ config.keys = {
     { key = "[", mods = "LEADER", action = act.ActivateTabRelative(-1) },
     { key = "]", mods = "LEADER", action = act.ActivateTabRelative(1) },
 }
+
+-- Tabs 1-9
+for _, v in ipairs(tab_keys) do
+  table.insert(keys, v)
+end
+
+config.keys = keys
 
 -- and finally, return the configuration to wezterm
 return config
