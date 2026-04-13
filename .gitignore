@@ -1,0 +1,11 @@
+# Neovim generated files
+nvim/lazy-lock.json
+nvim/plugin/
+nvim/spell/
+
+# Nushell history
+nushell/history.txt
+
+# OS files
+.DS_Store
+Thumbs.db
