@@ -8,7 +8,7 @@ Personal configuration files for Neovim, WezTerm, and Nushell — synced across 
 |------|-------------------|
 | **Neovim** (NvChad v2.5) | `nvim/` |
 | **WezTerm** | `wezterm/.wezterm.lua` |
-| **Nushell** | `nushell/config.nu` |
+| **Nushell** | `nushell/config.nu`, `nushell/env.nu` |
 
 ## Prerequisites
 
@@ -17,6 +17,8 @@ Install these before running the setup script:
 - [Neovim](https://neovim.io/) (v0.10+)
 - [WezTerm](https://wezfurlong.org/wezterm/)
 - [Nushell](https://www.nushell.sh/)
+- [Starship](https://starship.rs/) (prompt)
+- [zoxide](https://github.com/ajeetdsouza/zoxide) (smarter cd)
 - A [Nerd Font](https://www.nerdfonts.com/) (for icons in Neovim/WezTerm)
 - [Git](https://git-scm.com/)
 
@@ -65,6 +67,7 @@ New-Item -ItemType SymbolicLink -Path "$HOME\.wezterm.lua" -Target "$PWD\wezterm
 
 # Nushell
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\nushell\config.nu" -Target "$PWD\nushell\config.nu"
+New-Item -ItemType SymbolicLink -Path "$env:APPDATA\nushell\env.nu" -Target "$PWD\nushell\env.nu"
 ```
 
 **macOS / Linux**:
@@ -77,4 +80,5 @@ ln -s "$(pwd)/wezterm/.wezterm.lua" ~/.wezterm.lua
 
 # Nushell
 ln -s "$(pwd)/nushell/config.nu" ~/.config/nushell/config.nu
+ln -s "$(pwd)/nushell/env.nu" ~/.config/nushell/env.nu
 ```
