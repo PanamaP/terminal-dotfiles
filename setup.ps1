@@ -54,6 +54,7 @@ New-Symlink -Source "$DotfilesDir\wezterm\.wezterm.lua" -Destination "$HOME\.wez
 
 Write-Host "[Nushell]"
 New-Symlink -Source "$DotfilesDir\nushell\config.nu" -Destination "$env:APPDATA\nushell\config.nu"
+New-Symlink -Source "$DotfilesDir\nushell\env.nu" -Destination "$env:APPDATA\nushell\env.nu"
 
 Write-Host ""
 Write-Host "Done! Open nvim to trigger first-time plugin installation." -ForegroundColor Green

@@ -32,6 +32,7 @@ link "$DOTFILES_DIR/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
 
 echo "[Nushell]"
 link "$DOTFILES_DIR/nushell/config.nu" "$HOME/.config/nushell/config.nu"
+link "$DOTFILES_DIR/nushell/env.nu" "$HOME/.config/nushell/env.nu"
 
 echo ""
 echo "Done! Open nvim to trigger first-time plugin installation."

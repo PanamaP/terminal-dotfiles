@@ -31,3 +31,5 @@ def bsf [] { fzf --filter (".slnx$") | sed 's|\\|/|g' | lines | first | xargs do
 # Starship load
 mkdir ($nu.data-dir | path join "vendor/autoload")
 starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+source ~/.zoxide.nu
