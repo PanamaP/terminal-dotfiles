@@ -50,7 +50,18 @@ Write-Host "[Neovim]"
 New-Symlink -Source "$DotfilesDir\nvim" -Destination "$env:LOCALAPPDATA\nvim"
 
 Write-Host "[WezTerm]"
-New-Symlink -Source "$DotfilesDir\wezterm\.wezterm.lua" -Destination "$HOME\.wezterm.lua"
+# Clean up old single-file symlink if it exists
+if (Test-Path "$HOME\.wezterm.lua") {
+    $item = Get-Item "$HOME\.wezterm.lua" -Force
+    if ($item.LinkType -eq "SymbolicLink") {
+        Write-Host "  Removing old symlink: $HOME\.wezterm.lua"
+        Remove-Item "$HOME\.wezterm.lua" -Force
+    } else {
+        Write-Host "  Backing up old config: $HOME\.wezterm.lua -> $HOME\.wezterm.lua.bak"
+        Move-Item "$HOME\.wezterm.lua" "$HOME\.wezterm.lua.bak" -Force
+    }
+}
+New-Symlink -Source "$DotfilesDir\wezterm" -Destination "$HOME\.config\wezterm"
 
 Write-Host "[Nushell]"
 New-Symlink -Source "$DotfilesDir\nushell\config.nu" -Destination "$env:APPDATA\nushell\config.nu"
