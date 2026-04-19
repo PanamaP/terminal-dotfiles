@@ -36,6 +36,7 @@ return {
         "lua-language-server", "xmlformatter", "csharpier", "prettier",
         "stylua", "bicep-lsp", "html-lsp", "css-lsp", "eslint-lsp",
         "typescript-language-server", "json-lsp", "rust-analyzer", "roslyn",
+        "bacon", "bacon-ls", "taplo",
       },
     },
   },
