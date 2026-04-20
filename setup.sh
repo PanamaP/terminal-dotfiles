@@ -28,7 +28,15 @@ echo "[Neovim]"
 link "$DOTFILES_DIR/nvim" "$HOME/.config/nvim"
 
 echo "[WezTerm]"
-link "$DOTFILES_DIR/wezterm/.wezterm.lua" "$HOME/.wezterm.lua"
+# Clean up old single-file symlink if it exists
+if [ -L "$HOME/.wezterm.lua" ]; then
+    echo "  Removing old symlink: $HOME/.wezterm.lua"
+    rm "$HOME/.wezterm.lua"
+elif [ -f "$HOME/.wezterm.lua" ]; then
+    echo "  Backing up old config: $HOME/.wezterm.lua → $HOME/.wezterm.lua.bak"
+    mv "$HOME/.wezterm.lua" "$HOME/.wezterm.lua.bak"
+fi
+link "$DOTFILES_DIR/wezterm" "$HOME/.config/wezterm"
 
 echo "[Nushell]"
 link "$DOTFILES_DIR/nushell/config.nu" "$HOME/.config/nushell/config.nu"

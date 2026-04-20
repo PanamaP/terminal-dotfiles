@@ -11,11 +11,18 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master", -- nvim 0.11 backwards compatibility
     opts = {
       ensure_installed = {
         "hyprlang", "vim", "lua", "vimdoc",
-        "html", "css", "c_sharp", "razor",
+        "html", "css", "c_sharp", "razor", "rust", "toml"
       },
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true,
+      }
     },
   },
   {
@@ -29,6 +36,7 @@ return {
         "lua-language-server", "xmlformatter", "csharpier", "prettier",
         "stylua", "bicep-lsp", "html-lsp", "css-lsp", "eslint-lsp",
         "typescript-language-server", "json-lsp", "rust-analyzer", "roslyn",
+        "bacon", "bacon-ls", "taplo",
       },
     },
   },

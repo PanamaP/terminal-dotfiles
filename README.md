@@ -7,7 +7,7 @@ Personal configuration files for Neovim, WezTerm, and Nushell — synced across 
 | Tool | Config Path in Repo |
 |------|-------------------|
 | **Neovim** (NvChad v2.5) | `nvim/` |
-| **WezTerm** | `wezterm/.wezterm.lua` |
+| **WezTerm** | `wezterm/wezterm.lua`, `wezterm/projects.lua` |
 | **Nushell** | `nushell/config.nu`, `nushell/env.nu` |
 
 ## Prerequisites
@@ -63,7 +63,7 @@ If you prefer not to use the setup scripts:
 New-Item -ItemType SymbolicLink -Path "$env:LOCALAPPDATA\nvim" -Target "$PWD\nvim"
 
 # WezTerm
-New-Item -ItemType SymbolicLink -Path "$HOME\.wezterm.lua" -Target "$PWD\wezterm\.wezterm.lua"
+New-Item -ItemType SymbolicLink -Path "$HOME\.config\wezterm" -Target "$PWD\wezterm"
 
 # Nushell
 New-Item -ItemType SymbolicLink -Path "$env:APPDATA\nushell\config.nu" -Target "$PWD\nushell\config.nu"
@@ -76,7 +76,7 @@ New-Item -ItemType SymbolicLink -Path "$env:APPDATA\nushell\env.nu" -Target "$PW
 ln -s "$(pwd)/nvim" ~/.config/nvim
 
 # WezTerm
-ln -s "$(pwd)/wezterm/.wezterm.lua" ~/.wezterm.lua
+ln -s "$(pwd)/wezterm" ~/.config/wezterm
 
 # Nushell
 ln -s "$(pwd)/nushell/config.nu" ~/.config/nushell/config.nu
